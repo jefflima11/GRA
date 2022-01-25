@@ -61,16 +61,23 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
      start transaction;
 
      if not exists(select cd_produto
-                   from hist_pro
-                   where cd_produto = pcd_produto
-                     and cd_marca = pcd_marca
-                     and cd_tamanho = pcd_tamanho
-                     and cd_tipo_peca = pcd_tipo_peca
-                     and ds_observacao = pds_observacao
-                     and cd_hist_pro not in (select cd_hist_pro))
+				   from hist_pro
+				   where cd_hist_pro not
+				   in (select cd_hist_pro from pro_inat)
+				   and cd_produto = pcd_produto)
+
+	 then insert into hist_pro values (null,pcd_produto,pcd_marca,pcd_tamanho,pcd_tp_peca,current_timestamp(),pds_observacao);
+		select 'dados registrados' as resultado;
+		commit;
+     else 
+		select 'dados não registrados';
+        rollback;
+	end if;
+     
 
 
  end $$
 
 
  DELIMITER ;
+        
