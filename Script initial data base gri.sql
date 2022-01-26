@@ -70,7 +70,7 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
 		select 'dados registrados' as resultado;
 		commit;
      else 
-		select 'dados não registrados';
+		select 'dados nao registrados';
         rollback;
 	end if;
      
@@ -80,4 +80,4 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
 
 
  DELIMITER ;
-        
+    
