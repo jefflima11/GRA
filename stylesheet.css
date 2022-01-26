@@ -5,5 +5,14 @@ body {
 
 #panel {
     border-color: black;
-    border: 5px;
+    border-radius: 5px;
+
+
+}
+
+
+#title {
+    margin-left: 37%;
+    position: relative;
+    font-size: 25px;
 }
