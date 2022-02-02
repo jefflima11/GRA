@@ -21,6 +21,11 @@
     echo "<p style='color: #FF0000;'>Campo " .$_SESSION['errocdtppeca']." obrigatorio";
     unset($_SESSION['errocdtppeca']);
    }
+
+   if (isset($_SESSION['registrosalvo'])) {
+       echo $_SESSION['registrosalvo'];
+       unset($_SESSION['registrosalvo']);
+   }
 ?>
 
 

@@ -80,4 +80,32 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
 
 
  DELIMITER ;
-    
+
+alter table pro_inat
+modify column dt_inativacao timestamp not null default current_timestamp();
+
+delimiter $$
+create procedure sp_inativacao (
+pcd_hist_pro int
+)
+
+BEGIN
+
+	Start TRANSACTION;
+
+	if not exists(select cd_hist_pro
+				  from pro_inat
+				  where cd_hist_pro = pcd_hist_pro)
+	then insert into pro_inat values (null,pcd_hist_pro,current_timestamp());
+
+		select 'dados registrados';
+		commit;
+	ELSE 
+		select 'dados nao registrados';							  
+		rollback;
+
+	end if;		
+END $$
+
+ DELIMITER ;
+
