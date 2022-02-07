@@ -1,0 +1,18 @@
+*{margin: 0; padding: 0;}
+
+body{
+    font-family: arial,Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.menu{
+    list-style: none;
+    border: 1px solcid #c0c0c0;
+    float: left;
+}
+
+.menu li{
+    position:relative;
+    float: left;
+    border-right:1px solid #c0c0c0;
+}
