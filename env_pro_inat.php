@@ -13,9 +13,6 @@
         include_once('connection.php');
 
         $result = mysqli_query($con,"call sp_inativacao('$cd_hist_pro')");
-        while ($exibe = mysqli_fetch_assoc($result)) {
-            $_SESSION['registrosalvo'] = "salvo";
-            header("location: form_pro_inat.php");
-            }
+
     }
 ?>

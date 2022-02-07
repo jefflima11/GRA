@@ -27,7 +27,7 @@
 
     <div>
         <fieldset>
-            <form action="pro_inat.php" method="post">
+            <form action="env_pro_inat.php" method="post">
                 <a href="index.php">
                     <input type="button" value="Menu">
                 </a>

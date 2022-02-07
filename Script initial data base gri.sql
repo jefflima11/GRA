@@ -66,8 +66,7 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
 				   in (select cd_hist_pro from pro_inat)
 				   and cd_produto = pcd_produto)
 
-	 then insert into hist_pro values (null,pcd_produto,pcd_marca,pcd_tamanho,pcd_tp_peca,current_timestamp(),pds_observacao);
-		select 'dados registrados' as resultado;
+	 then insert into hist_pro values (null,pcd_produto,pcd_marca,pcd_tamanho,pcd_tp_peca,current_timestamp(),pds_observacao);		select 'dados registrados' as resultado;
 		commit;
      else 
 		select 'dados nao registrados';
@@ -109,3 +108,105 @@ END $$
 
  DELIMITER ;
 
+delimiter $$
+create procedure sp_marca (
+pds_marca varchar (25)
+)
+
+begin
+
+	start transaction;
+    
+    if not exists(select ds_marca
+				  from marca
+                  where ds_marca = pds_marca)
+                  then insert into marca values (null,pds_marca);
+                  select 'dados registrados' as resultado;
+                  commit;
+	else 
+		select 'dados nao registrados' as resultado;
+        rollback;
+        
+	end if ;
+
+end $$
+
+
+delimiter ;
+
+
+delimiter $$
+create procedure sp_tamanho (
+pds_tamanho varchar (25)
+)
+
+begin
+
+	start transaction;
+    
+    if not exists(select ds_tamanho
+				  from tamanho
+                  where ds_tamanho = pds_tamanho)
+                  then insert into marca values (null,pds_tamanho);
+                  select 'dados registrados' as resultado;
+                  commit;
+	else 
+		select 'dados nao registrados' as resultado;
+        rollback;
+        
+	end if ;
+
+end $$
+
+delimiter ;
+
+delimiter $$
+create procedure sp_tppeca (
+pds_tamanho varchar (25)
+)
+
+begin
+
+	start transaction;
+    
+    if not exists(select ds_tppeca
+				  from tp_peca
+                  where ds_tp_peca = pds_tamanho)
+                  then insert into marca values (null,pds_tamanho);
+                  select 'dados registrados' as resultado;
+                  commit;
+	else 
+		select 'dados nao registrados' as resultado;
+        rollback;
+        
+	end if ;
+
+end $$
+
+delimiter ;
+
+
+delimiter $$
+create procedure sp_tppeca (
+pds_tppeca varchar (25)
+)
+
+begin
+
+	start transaction;
+    
+    if not exists(select ds_tp_peca
+				  from tp_peca
+                  where ds_tp_peca = pds_tppeca)
+                  then insert into tp_peca values (null,pds_tppeca);
+                  select 'dados registrados' as resultado;
+                  commit;
+	else 
+		select 'dados nao registrados' as resultado;
+        rollback;
+        
+	end if ;
+
+end $$
+
+delimiter ;
