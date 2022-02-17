@@ -13,7 +13,7 @@
         include_once('connection.php');
 
         $result = mysqli_query($con,"call sp_tppeca('$dstppeca')");
-        header("location: form_tppeca.php");
+        header("location: tipo-peca.html");
 
     }
 ?>

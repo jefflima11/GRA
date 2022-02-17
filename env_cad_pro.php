@@ -33,7 +33,7 @@
         include_once('connection.php');
 
         $result = mysqli_query($con,"call sp_hist_pro('$codproduto','$cdmarca','$cdtamanho','$cdtppeca','$dsobservacao')");      
-        header("location: form_cadastro_produto.php");
+        header("location: produto.html");
 
     }
 

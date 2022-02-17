@@ -14,7 +14,7 @@
         include_once('connection.php');
 
         $result = mysqli_query($con,"call sp_marca('$dsmarca')");
-        header("location: form_marca.php");
+        header("location: marca.html");
     }
 
 ?>

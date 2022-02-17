@@ -13,6 +13,7 @@
         include_once('connection.php');
 
         $result = mysqli_query($con,"call sp_inativacao('$cd_hist_pro')");
+        header("location: inativacao-produtos.html");
 
     }
 ?>
