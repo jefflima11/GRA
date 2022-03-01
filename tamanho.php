@@ -1,5 +1,9 @@
+<?php
+    session_start();
+    include_once('verifica_login.php');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +14,8 @@
 <body>
     <nav>
         <ul>
-            <li><a href="Menu.html">Retornar</a></li>
+            <li><a href="Menu.php">Retornar</a></li>
+            <li><a href="logout.php" id="logout_1">Logout</a></li>
         </ul>
     </nav>
 

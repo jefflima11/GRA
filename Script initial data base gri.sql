@@ -19,10 +19,11 @@ constraint tp_peca_pk primary key (cd_tp_peca)
 );
 
 create table usuario (
-cd_usuario varchar(25),
-nm_usuario varchar(50) not null,
-dt_nascimento date not null,
-dt_cadastro timestamp not null default current_timestamp(),
+cd_usuario int auto_increment,
+ds_usuario varchar(30) not null,
+ds_senha varchar(200) not null,
+nm_usuario varchar(40) not null,
+dt_cadastro timestamp not null default current_timestamp,
 constraint usuario_pk primary key (cd_usuario)
 );
 
@@ -163,4 +164,29 @@ begin
 	end if ;
 
 end $$
+delimiter ;
+
+delimiter $$
+delimiter $$
+create procedure sp_usuario(
+pds_usuario varchar(30),
+pds_senha varchar (200),
+pnm_usuario varchar (40)
+)
+begin
+
+	start transaction;
+    
+    if not exists(select ds_usuario 
+				  from usuario
+                  where ds_usuario = pds_usuario
+                    and nm_usuario = pnm_usuario) 
+				then insert into usuario values (null, pds_usuario, md5(pds_senha),pnm_usuario,current_timestamp());
+                select "Okay" as resultado ;
+    else select "Erro" as resultado;
+    
+    end if;
+
+end $$
+
 delimiter ;

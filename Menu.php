@@ -1,3 +1,8 @@
+<?php
+session_start();
+include_once('verifica_login.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,11 +17,11 @@
         <ul>
             <li><a href="#">Cadastro</a>
                 <ul id="cadastro">
-                    <li><a href="produto.html">Produtos</a></li>
+                    <li><a href="produto.php">Produtos</a></li>
                     <li><a href="marca.php">Marca</a></li>
-                    <li><a href="tamanho.html">Tamanho</a></li>
-                    <li><a href="tipo-peca.html">Tipos de peças</a></li>
-                    <li><a href="Inativacao-produtos.html">Inativacao de produtos</a></li>
+                    <li><a href="tamanho.php">Tamanho</a></li>
+                    <li><a href="tipo-peca.php">Tipos de peças</a></li>
+                    <li><a href="Inativacao-produtos.php">Inativacao de produtos</a></li>
                 </ul>
             </li>
             <li><a href="#">Movimentação</a>
@@ -32,7 +37,7 @@
                 </ul>
             </li>
             <li><a href="#">Relátorios</a></li>
-            
+            <li><a href="logout.php" id="logout">Logout</a></li>
         </ul>
     </nav>
 </body>

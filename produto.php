@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include_once('verifica_login.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +16,8 @@
 <body>
     <nav>
         <ul>
-            <li><a href="Menu.html">Retornar</a></li>
+            <li><a href="Menu.php">Retornar</a></li>
+            <li><a href="logout.php" id="logout_1">Logout</a></li>
         </ul>
     </nav>
 
@@ -20,9 +26,8 @@
         <form action="env_cad_pro.php" method="post">
 
             <input type="text" name="cdproduto" id="cdproduto" placeholder="Código" required="required">
-            <!-- <input type="text" name="cdmarca" id="cdmarca" placeholder="Marca" required="required"> -->
 
-            <select name="select_marca" id="cdmarca" required="required">
+            <select name="cdmarca" id="cdmarca" required="required">
                 <option>Selecione</option>
                 <?php
                     $result_marca = "SELECT * FROM marca";
@@ -34,10 +39,34 @@
                      }
                     ?>
             </select>
+            
+            <select name="cdtamanho" id="cdtamanho" required="required">
+                <option>Selecione</option>
+                <?php
+                    $result_tamanho = "SELECT * FROM tamanho";
+                    $resultado_tamanho = mysqli_query($con, $result_tamanho);
+                    while ($row_tamanho = mysqli_fetch_assoc($resultado_tamanho)){ ?>
 
-            <input type="text" name="cdtamanho" id="cdtamanho" placeholder="Tamanho" required="required">
-            <input type="text" name="cdtppeca" id="cdtppeca" placeholder="Tipo de produto" required="required">
-            <input type="text" name="dsobservacao" id="dsobservacao" placeholder="Observação" required="required">
+                    <option value="<?php echo $row_tamanho['cd_tamanho'];?>"><?php echo $row_tamanho['ds_tamanho'];?></option>
+                    <?php
+                     }
+                    ?>
+            </select>         
+
+            <select name="cdtppeca" id="cdtppeca" required="required">
+                <option>Selecione</option>
+                <?php
+                    $result_tppeca = "SELECT * FROM tp_peca";
+                    $resultado_tppeca = mysqli_query($con, $result_tppeca);
+                    while ($row_tppeca = mysqli_fetch_assoc($resultado_tppeca)){ ?>
+
+                    <option value="<?php echo $row_tppeca['cd_tp_peca'];?>"><?php echo $row_tppeca['ds_tp_peca'];?></option>
+                    <?php
+                     }
+                    ?>
+            </select>         
+        
+            <input type="text" name="dsobservacao" id="dsobservacao" placeholder="Observação">
 
             <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary btn-block btn-large">Enviar</button>
         </form>

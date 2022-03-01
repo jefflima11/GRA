@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once('verifica_login.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +14,8 @@
 <body>
     <nav>
         <ul>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="menu.php">Menu</a></li>
+            <li><a href="logout.php" id="logout_1">Logout</a></li>
         </ul>
     </nav>
 

@@ -14,7 +14,7 @@
         include_once('connection.php');
 
         $result = mysqli_query($con,"call sp_tamanho('$dstamanho')");
-        header("location: tamanho.html");
+        header("location: tamanho.php");
     }
 
 ?>

@@ -1,8 +1,10 @@
 <?php
-    include_once("connection.php");
+    session_start();
+    include_once('connection.php');
+    include_once('verifica_login.php');
 ?>
 
-<!-- !DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +16,8 @@
 <body>
     <nav>
         <ul>
-            <li><a href="Menu.html">Retornar</a></li>
+            <li><a href="Menu.php">Retornar</a></li>
+            <li><a href="logout.php" id="logout_1">Logout</a></li>
         </ul>
     </nav>
 
