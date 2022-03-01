@@ -40,7 +40,6 @@ constraint hist_tamanho_fk foreign key (cd_tamanho) references tamanho (cd_taman
 constraint hist_tp_peca_fk foreign key (cd_tp_peca) references tp_peca (cd_tp_peca)
 );
 
-
 create table pro_inat (
 cd_pro_inat int AUTO_INCREMENT PRIMARY key,
 cd_hist_pro int not null,
@@ -57,9 +56,7 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
  pds_observacao varchar(255)    
  )
  BEGIN
-
      start transaction;
-
      if not exists(select cd_produto
 				   from hist_pro
 				   where cd_hist_pro not
@@ -72,12 +69,7 @@ constraint inat_pro_pk FOREIGN KEY (cd_hist_pro) REFERENCES hist_pro (cd_hist_pr
 		select 'dados nao registrados';
         rollback;
 	end if;
-     
-
-
  end $$
-
-
  DELIMITER ;
 
 alter table pro_inat
@@ -87,11 +79,8 @@ delimiter $$
 create procedure sp_inativacao (
 pcd_hist_pro int
 )
-
 BEGIN
-
 	Start TRANSACTION;
-
 	if not exists(select cd_hist_pro
 				  from pro_inat
 				  where cd_hist_pro = pcd_hist_pro)
@@ -105,14 +94,12 @@ BEGIN
 
 	end if;		
 END $$
-
  DELIMITER ;
 
 delimiter $$
 create procedure sp_marca (
 pds_marca varchar (25)
 )
-
 begin
 
 	start transaction;
@@ -130,16 +117,12 @@ begin
 	end if ;
 
 end $$
-
-
 delimiter ;
-
 
 delimiter $$
 create procedure sp_tamanho (
 pds_tamanho varchar (25)
 )
-
 begin
 
 	start transaction;
@@ -147,7 +130,7 @@ begin
     if not exists(select ds_tamanho
 				  from tamanho
                   where ds_tamanho = pds_tamanho)
-                  then insert into marca values (null,pds_tamanho);
+                  then insert into tamanho values (null,pds_tamanho);
                   select 'dados registrados' as resultado;
                   commit;
 	else 
@@ -155,42 +138,14 @@ begin
         rollback;
         
 	end if ;
-
+				
 end $$
-
 delimiter ;
-
-delimiter $$
-create procedure sp_tppeca (
-pds_tamanho varchar (25)
-)
-
-begin
-
-	start transaction;
-    
-    if not exists(select ds_tppeca
-				  from tp_peca
-                  where ds_tp_peca = pds_tamanho)
-                  then insert into marca values (null,pds_tamanho);
-                  select 'dados registrados' as resultado;
-                  commit;
-	else 
-		select 'dados nao registrados' as resultado;
-        rollback;
-        
-	end if ;
-
-end $$
-
-delimiter ;
-
 
 delimiter $$
 create procedure sp_tppeca (
 pds_tppeca varchar (25)
 )
-
 begin
 
 	start transaction;
@@ -208,5 +163,4 @@ begin
 	end if ;
 
 end $$
-
 delimiter ;
