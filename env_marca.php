@@ -16,5 +16,3 @@
         $result = mysqli_query($con,"call sp_marca('$dsmarca')");
         header("location: marca.html");
     }
-
-?>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de produtos</title>
     <link rel="stylesheet" href="style_bg.css">
+    <?php include_once("connection.php")?>
 </head>
 <body>
     <nav>
@@ -19,8 +20,9 @@
         <form action="env_cad_pro.php" method="post">
 
             <input type="text" name="cdproduto" id="cdproduto" placeholder="Código" required="required">
-            <input type="text" name="cdmarca" id="cdmarca" placeholder="Marca" required="required">
-            <select name="select_marca" id="ds">
+            <!-- <input type="text" name="cdmarca" id="cdmarca" placeholder="Marca" required="required"> -->
+
+            <select name="select_marca" id="cdmarca" required="required">
                 <option>Selecione</option>
                 <?php
                     $result_marca = "SELECT * FROM marca";
@@ -32,6 +34,7 @@
                      }
                     ?>
             </select>
+
             <input type="text" name="cdtamanho" id="cdtamanho" placeholder="Tamanho" required="required">
             <input type="text" name="cdtppeca" id="cdtppeca" placeholder="Tipo de produto" required="required">
             <input type="text" name="dsobservacao" id="dsobservacao" placeholder="Observação" required="required">
