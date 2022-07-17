@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	background-image: url(../Pictures/background.png);
+	/* background-color: rgba(199, 171, 136, 0.397); */
+	font-family: sans-serif;
+	/* font-size: 1.7em;
+	color: #429d95; */
+}
+
+.navbar{
+    background: rgba(0, 162, 180, 0.8);
+    box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+	padding: 5px;
+}
+
+
+.navbar ul{
+    list-style-type: none;
+	padding: 0;
+
+}
+
+.navbar ul li{
+	display: inline;
+    position: relative;
+}
+.navbar ul li a{
+    padding: 20px;
+    color: white;
+    display: inline-block;
+	transition: background.4s;
+	text-decoration: none;
+}
+
+.navbar ul li a:hover{
+	background-color: rgba(225, 240, 241, 0.863);
+	color: rgb(16, 34, 34);
+}
+
+.navbar ul li:last-child a {
+	float: right;
+}
+
+/* sub-menu */
+
+.navbar ul ul {
+	display: none;
+	position: absolute;
+	left:0;
+}
+
+.navbar ul li:hover ul{
+	display: block;
+}
+
+.navbar ul ul {
+	width: 150px;
+}
+
+.navbar ul ul li a{
+	display: block;
+	background-color: rgba(0, 162, 180, 0.8);
+}
+
+/* Formularios */
+

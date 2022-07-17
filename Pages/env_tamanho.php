@@ -11,7 +11,7 @@
             $_SESSION['errodstamanho'] = "tamanho";
         } 
 
-        include_once('connection.php');
+        include_once('../php/connection.php');
 
         $result = mysqli_query($con,"call sp_tamanho('$dstamanho')");
         header("location: tamanho.php");

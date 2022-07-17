@@ -1,0 +1,100 @@
+#titulo {
+	font-family: sans-serif;
+	color: #136a8d;
+	margin-left: 20%;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.banner {
+    margin-left: 20%;
+	margin-top: 3%;
+    position: relative;
+    font-size: 1.7em;
+	color: #429d95;
+}
+
+fieldset {
+	border: 0;
+}
+
+input, select, textarea, button {
+	border-radius: 5px;
+}
+
+.grupo:before, .grupo:after {
+	display: table;
+}
+
+.grupo:after {
+	clear: both;
+}
+
+.campo {
+	margin-bottom: 0.5em;
+}
+
+.campo label {
+	margin-bottom: 0.2em;
+	color: #136a8d;
+	display: block;
+    margin-left: 25%;
+}
+
+fieldset .grupo .campo {
+	float: left;
+    margin-right: 1em;
+}
+
+.campo input[type="text"], .campo input[type="password"], .campo select{
+    padding: 0.4em;
+    border: 1px solid #59429d;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+    font-size: 0.6em;
+    margin-left: 25%;
+    position: relative;
+}
+
+.campo input:focus {
+    background: #e0e0f8;
+}
+
+.botao {
+    font-size: 1em;
+    background: #136a8d;
+    border: 0;
+    margin-bottom: 0.1em;
+    color: #ffffff;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 85%;
+    left: 60%;
+    margin-right: -50%;
+    transform: translate(-50%), -50%;
+}
+
+.botao:hover {
+    background: #78c5e4;
+    box-shadow: inset 2px 2px 2px rgba(148, 236, 236, 0.2);
+    text-shadow: none;
+}
+
+.botao {
+    cursor: pointer;
+}
+
+.banner {
+    position: relative;
+    background-color: rgba(252, 249, 255, 0.781);
+    width: 50%;
+    height: 50%;
+    padding: 100px;
+    border-radius: 0.5em;
+}
+
+#titulo-tppeca {
+    font-size: 0.5em;
+}

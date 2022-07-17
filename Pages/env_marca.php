@@ -11,7 +11,7 @@
             $_SESSION['errodsmarca'] = "descricao";
         } 
 
-        include_once('connection.php');
+        include_once('../php/connection.php');
 
         $result = mysqli_query($con,"call sp_marca('$dsmarca')");
         header("location: marca.php");

@@ -10,7 +10,7 @@
             $_SESSION['errocdhistpro'] = "historico produto";
         }
     
-        include_once('connection.php');
+        include_once('../php/connection.php');
 
         $result = mysqli_query($con,"call sp_inativacao('$cd_hist_pro')");
         header("location: inativacao-produtos.php");

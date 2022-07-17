@@ -3,7 +3,7 @@ session_start();
 include('connection.php');
 
 if(empty($_POST['usuario']) || empty($_POST['senha'])) {
-    header('location: index.html');
+    header('location: ../index.html');
     exit();
 }
 
@@ -20,9 +20,9 @@ $row = mysqli_num_rows($result);
 
 if ($row == 1) {
     $_SESSION['usuario'] = $usuario;
-    header('location: menu.php');
+    header('location: ../Pages/Menu.php');
     exit();
 } else {
-    header('location: index.html');
+    header('location: ../index.html');
     exit();
 }

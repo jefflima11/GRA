@@ -30,7 +30,7 @@
             
         }
 
-        include_once('connection.php');
+        include_once('../php/connection.php');
 
         $result = mysqli_query($con,"call sp_hist_pro('$codproduto','$cdmarca','$cdtamanho','$cdtppeca','$dsobservacao')");      
         header("location: produto.php");
