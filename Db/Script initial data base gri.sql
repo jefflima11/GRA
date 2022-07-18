@@ -167,14 +167,13 @@ begin
 end $$
 delimiter ;
 
-drop procedure sp_usuario;
 
 delimiter $$
 create procedure sp_usuario(
 pds_usuario varchar(30),
 pds_senha varchar (200),
-pnm_usuario varchar (40
-ptp
+pnm_usuario varchar (40),
+ptp_usuario int
 )
 begin
 
@@ -184,7 +183,7 @@ begin
 				  from usuario
                   where ds_usuario = pds_usuario
                     and nm_usuario = pnm_usuario) 
-				then insert into usuario values (null, pds_usuario, md5(pds_senha),pnm_usuario,current_timestamp());
+				then insert into usuario values (null, pds_usuario, md5(pds_senha),pnm_usuario,ptp_usuario,current_timestamp());
                 select "Okay" as resultado ;
     else select "Erro" as resultado;
     
