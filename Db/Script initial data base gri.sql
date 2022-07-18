@@ -23,6 +23,7 @@ cd_usuario int auto_increment,
 ds_usuario varchar(30) not null,
 ds_senha varchar(200) not null,
 nm_usuario varchar(40) not null,
+tp_usuario int,
 dt_cadastro timestamp not null default current_timestamp,
 constraint usuario_pk primary key (cd_usuario)
 );
@@ -166,12 +167,14 @@ begin
 end $$
 delimiter ;
 
-delimiter $$
+drop procedure sp_usuario;
+
 delimiter $$
 create procedure sp_usuario(
 pds_usuario varchar(30),
 pds_senha varchar (200),
-pnm_usuario varchar (40)
+pnm_usuario varchar (40
+ptp
 )
 begin
 
