@@ -33,7 +33,7 @@ include_once('../Php/verifica_login.php');
 
             <li><a href="#">Consultas</a>
                 <ul>
-                    <li><a href="#">Produtos ativos</a></li>
+                    <li><a href="prod_ativo.php">Produtos ativos</a></li>
                     <li><a href="#">Códigos disponiveis</a></li>
                 </ul>
             </li>

@@ -3,7 +3,10 @@ session_start();
 include('connection.php');
 
 if(empty($_POST['usuario']) || empty($_POST['senha'])) {
-    header('location: ../index.html');
+    $_SESSION['msg'] = "<p style='color:red;'>Usuário não foi encontrado</p>";
+    header('location: ../index.php');
+   
+    header('location: ../index.php');
     exit();
 }
 
@@ -23,6 +26,6 @@ if ($row == 1) {
     header('location: ../Pages/Menu.php');
     exit();
 } else {
-    header('location: ../index.html');
-    exit();
+    $_SESSION['msg'] = "<p style='color:red;'>Usuário não foi encontrado</p>";
+    header('location: ../index.php');
 }

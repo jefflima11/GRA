@@ -1,5 +1,5 @@
 <?php
 if (!$_SESSION['usuario']) {
-    header('location: ../index.html');
+    header('location: ../index.php');
     exit();
 }
